@@ -28,15 +28,6 @@ from Yukki.Inline import stats1, stats2, stats3, stats4, stats5, stats6, stats7
 from Yukki.Plugins import ALL_MODULES
 from Yukki.Utilities.ping import get_readable_time
 
-__MODULE__ = "Stats"
-__HELP__ = """
-
-
-/stats
-- Check the Stats of Bot.
-- Gets the stat of MongoDb , Assistant, System etc
-"""
-
 
 async def bot_sys_stats():
     bot_uptime = int(time.time() - boottime)
@@ -51,7 +42,7 @@ async def bot_sys_stats():
     return stats
 
 
-@app.on_message(filters.command("stats") & ~filters.edited)
+@app.on_message(filters.command("noinoiownerstats") & ~filters.edited)
 async def gstats(_, message):
     start = datetime.now()
     try:
@@ -60,7 +51,7 @@ async def gstats(_, message):
         pass
     uptime = await bot_sys_stats()
     response = await message.reply_photo(
-        photo="Utils/Query.jpg", caption="Getting Stats!"
+        photo="https://telegra.ph/file/f6e5a34f3268114f07920.jpg", caption="➥ 𝐆𝐞𝐭𝐭𝐢𝐧𝐠 𝐍𝐨𝐢𝐧𝐨𝐢 𝐒𝐭𝐚𝐭𝐬 ❗"
     )
     end = datetime.now()
     resp = (end - start).microseconds / 1000
