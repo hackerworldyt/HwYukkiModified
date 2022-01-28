@@ -6,15 +6,10 @@ def check_markup(user_name, user_id, videoid):
     buttons = [
         [
             InlineKeyboardButton(
-                text=f"Group's Playlist",
-                callback_data=f"playlist_check {user_id}|Group|{videoid}",
+                text="✨ Updates", url="https://t.me/BAZIGARXD"
             ),
-            InlineKeyboardButton(
-                text=f"{user_name[:8]}'s Playlist",
-                callback_data=f"playlist_check {user_id}|Personal|{videoid}",
-            ),
+            InlineKeyboardButton(text="📣 Support", url="https://t.me/CFC_BOT_SUPPORT"),
         ],
-        [InlineKeyboardButton(text="🗑 Close Menu", callback_data="close")],
     ]
     return buttons
 
