@@ -8,18 +8,6 @@ from youtubesearchpython import VideosSearch
 
 from Yukki import MUSIC_BOT_NAME, app
 
-__MODULE__ = "Lyrics"
-__HELP__ = """
-
-/Lyrics [Music Name]
-- Searches Lyrics for the particular Music on web.
-
-**Note**:
-Inline button of Lyrics has some bugs. Searches only 50% results. You can use command instead if you want lyrics for any playing music.
-
-"""
-
-
 @app.on_callback_query(filters.regex(pattern=r"lyrics"))
 async def lyricssex(_, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
@@ -53,7 +41,7 @@ async def lyricssex(_, CallbackQuery):
     userid = CallbackQuery.from_user.id
     usr = f"[{CallbackQuery.from_user.first_name}](tg://user?id={userid})"
     xxx = f"""
-**Lyrics Search Powered By {MUSIC_BOT_NAME}**
+**➥ 𝐏𝐨𝐰𝐞𝐝 𝐛𝐲 𝐍𝐨𝐢𝐧𝐨𝐢 𝐌𝐮𝐬𝐢𝐜 **
 
 **Searched By:-** {usr}
 **Searched Song:-** __{title}__
@@ -78,10 +66,10 @@ async def lyricssex(_, CallbackQuery):
         await CallbackQuery.message.reply_text(xxx)
 
 
-@app.on_message(filters.command("lyrics"))
+@app.on_message(filters.command("noinoilyrics"))
 async def lrsearch(_, message: Message):
     if len(message.command) < 2:
-        return await message.reply_text("**Usage:**\n\n/lyrics [ Music Name]")
+        return await message.reply_text("**Usage:**\n\n/noinoilyrics [ Music Name]")
     m = await message.reply_text("Searching Lyrics")
     query = message.text.split(None, 1)[1]
     x = "OXaVabSRKQLqwpiYOn-E4Y7k3wj-TNdL5RfDPXlnXhCErbcqVvdCF-WnMR5TBctI"
@@ -91,7 +79,7 @@ async def lrsearch(_, message: Message):
     if S is None:
         return await m.edit("Lyrics not found :p")
     xxx = f"""
-**Lyrics Search Powered By {MUSIC_BOT_NAME}**
+**➥ 𝐏𝐨𝐰𝐞𝐝 𝐛𝐲 𝐍𝐨𝐢𝐧𝐨𝐢 𝐌𝐮𝐬𝐢𝐜**
 
 **Searched Song:-** __{query}__
 **Found Lyrics For:-** __{S.title}__
