@@ -16,37 +16,8 @@ from Yukki.Database import (add_gban_user, add_off, add_on, add_sudo,
                             remove_gban_user, remove_served_chat, remove_sudo,
                             set_video_limit)
 
-__MODULE__ = "SudoUsers"
-__HELP__ = """
 
-
-/sudolist 
-    Check the sudo user list of Bot. 
-
-
-**Note:**
-Only for Sudo Users. 
-
-
-/addsudo [Username or Reply to a user]
-- To Add A User In Bot's Sudo Users.
-
-/delsudo [Username or Reply to a user]
-- To Remove A User from Bot's Sudo Users.
-
-/maintenance [enable / disable]
-- When enabled Bot goes under maintenance mode. No one can play Music now!
-
-/logger [enable / disable]
-- When enabled Bot logs the searched queries in logger group.
-
-/clean
-- Clean Temp Files and Logs.
-"""
-# Add Sudo Users!
-
-
-@app.on_message(filters.command("addsudo") & filters.user(OWNER_ID))
+@app.on_message(filters.command("addnoinoisudo") & filters.user(OWNER_ID))
 async def useradd(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
@@ -86,7 +57,7 @@ async def useradd(_, message: Message):
     return
 
 
-@app.on_message(filters.command("delsudo") & filters.user(OWNER_ID))
+@app.on_message(filters.command("delnoinoisudo") & filters.user(OWNER_ID))
 async def userdel(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
@@ -125,7 +96,7 @@ async def userdel(_, message: Message):
     await message.reply_text(f"Something wrong happened.")
 
 
-@app.on_message(filters.command("sudolist"))
+@app.on_message(filters.command("noinoisudolist"))
 async def sudoers_list(_, message: Message):
     sudoers = await get_sudoers()
     text = "⭐️<u> **Owners:**</u>\n"
@@ -161,12 +132,12 @@ async def sudoers_list(_, message: Message):
 
 
 @app.on_message(
-    filters.command(["set_video_limit", f"set_video_limit@{BOT_USERNAME}"])
+    filters.command(["setvideolimit", f"setvideolimit@{BOT_USERNAME}"])
     & filters.user(SUDOERS)
 )
 async def set_video_limit_kid(_, message: Message):
     if len(message.command) != 2:
-        usage = "**Usage:**\n/set_video_limit [Number of chats allowed]"
+        usage = "**Usage:**\n/setvideolimit [Number of chats allowed]"
         return await message.reply_text(usage)
     chat_id = message.chat.id
     state = message.text.split(None, 1)[1].strip()
@@ -235,11 +206,11 @@ async def logger(_, message):
 ## Gban Module
 
 
-@app.on_message(filters.command("gban") & filters.user(SUDOERS))
+@app.on_message(filters.command("supergban") & filters.user(SUDOERS))
 async def ban_globally(_, message):
     if not message.reply_to_message:
         if len(message.command) < 2:
-            await message.reply_text("**Usage:**\n/gban [USERNAME | USER_ID]")
+            await message.reply_text("**Usage:**\n/supergban [USERNAME | USER_ID]")
             return
         user = message.text.split(None, 2)[1]
         if "@" in user:
@@ -274,7 +245,7 @@ async def ban_globally(_, message):
                 except Exception:
                     pass
             ban_text = f"""
-__**New Global Ban on {MUSIC_BOT_NAME}**__
+**𝐍𝐨𝐢𝐧𝐨𝐢 𝐒𝐮𝐩𝐞𝐫 𝐆 𝐛𝐚𝐧** 🔥
 
 **Origin:** {message.chat.title} [`{message.chat.id}`]
 **Sudo User:** {from_user.mention}
@@ -312,7 +283,7 @@ __**New Global Ban on {MUSIC_BOT_NAME}**__
             for chat in chats:
                 served_chats.append(int(chat["chat_id"]))
             m = await message.reply_text(
-                f"**Initializing Gobal Ban on {mention}**\n\nExpected Time : {len(served_chats)}"
+                f"**Initializing Super G Ban on {mention}**\n\nExpected Time : {len(served_chats)}"
             )
             number_of_chats = 0
             for sex in served_chats:
@@ -325,7 +296,7 @@ __**New Global Ban on {MUSIC_BOT_NAME}**__
                 except Exception:
                     pass
             ban_text = f"""
-__**New Global Ban on {MUSIC_BOT_NAME}**__
+**𝐍𝐨𝐢𝐧𝐨𝐢 𝐒𝐮𝐩𝐞𝐫 𝐆 𝐛𝐚𝐧** 🔥
 
 **Origin:** {message.chat.title} [`{message.chat.id}`]
 **Sudo User:** {from_user_mention}
@@ -343,12 +314,12 @@ __**New Global Ban on {MUSIC_BOT_NAME}**__
             return
 
 
-@app.on_message(filters.command("ungban") & filters.user(SUDOERS))
+@app.on_message(filters.command("supergban") & filters.user(SUDOERS))
 async def unban_globally(_, message):
     if not message.reply_to_message:
         if len(message.command) != 2:
             await message.reply_text(
-                "**Usage:**\n/ungban [USERNAME | USER_ID]"
+                "**Usage:**\n/superungban [USERNAME | USER_ID]"
             )
             return
         user = message.text.split(None, 1)[1]
@@ -395,7 +366,7 @@ async def unban_globally(_, message):
 # Broadcast Message
 
 
-@app.on_message(filters.command("broadcast_pin") & filters.user(SUDOERS))
+@app.on_message(filters.command("gcast1") & filters.user(SUDOERS))
 async def broadcast_message_pin_silent(_, message):
     if not message.reply_to_message:
         pass
@@ -426,7 +397,7 @@ async def broadcast_message_pin_silent(_, message):
         return
     if len(message.command) < 2:
         await message.reply_text(
-            "**Usage**:\n/broadcast [MESSAGE] or [Reply to a Message]"
+            "**Usage**:\n/gcast1 [MESSAGE] or [Reply to a Message]"
         )
         return
     text = message.text.split(None, 1)[1]
@@ -453,7 +424,7 @@ async def broadcast_message_pin_silent(_, message):
     )
 
 
-@app.on_message(filters.command("broadcast_pin_loud") & filters.user(SUDOERS))
+@app.on_message(filters.command("gcast2") & filters.user(SUDOERS))
 async def broadcast_message_pin_loud(_, message):
     if not message.reply_to_message:
         pass
@@ -484,7 +455,7 @@ async def broadcast_message_pin_loud(_, message):
         return
     if len(message.command) < 2:
         await message.reply_text(
-            "**Usage**:\n/broadcast [MESSAGE] or [Reply to a Message]"
+            "**Usage**:\n/gcast [MESSAGE] or [Reply to a Message]"
         )
         return
     text = message.text.split(None, 1)[1]
@@ -511,7 +482,7 @@ async def broadcast_message_pin_loud(_, message):
     )
 
 
-@app.on_message(filters.command("broadcast") & filters.user(SUDOERS))
+@app.on_message(filters.command("gcast") & filters.user(SUDOERS))
 async def broadcast(_, message):
     if not message.reply_to_message:
         pass
@@ -534,7 +505,7 @@ async def broadcast(_, message):
         return
     if len(message.command) < 2:
         await message.reply_text(
-            "**Usage**:\n/broadcast [MESSAGE] or [Reply to a Message]"
+            "**Usage**:\n/gcast [MESSAGE] or [Reply to a Message]"
         )
         return
     text = message.text.split(None, 1)[1]
