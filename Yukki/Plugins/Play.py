@@ -61,7 +61,7 @@ async def play(_, message: Message):
     url = get_url(message)
     if audio:
         mystic = await message.reply_text(
-            "🔄 Processing Audio... Please Wait!"
+            "🔄 Processing..."
         )
         try:
             read = db_mem[message.chat.id]["live_check"]
@@ -122,7 +122,7 @@ async def play(_, message: Message):
                     "Sorry! Bot only allows limited number of video calls due to CPU overload issues. Many other chats are using video call right now. Try switching to audio or try again later"
                 )
         mystic = await message.reply_text(
-            "🔄 Processing Video... Please Wait!"
+            "🔄 Processing..."
         )
         try:
             read = db_mem[message.chat.id]["live_check"]
@@ -142,7 +142,7 @@ async def play(_, message: Message):
             mystic,
         )
     elif url:
-        mystic = await message.reply_text("🔄 Processing URL... Please Wait!")
+        mystic = await message.reply_text("🔄 Processing...")
         if not message.reply_to_message:
             query = message.text.split(None, 1)[1]
         else:
@@ -158,7 +158,7 @@ async def play(_, message: Message):
         buttons = url_markup2(videoid, duration_min, message.from_user.id)
         return await message.reply_photo(
             photo=thumb,
-            caption=f"📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n__[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"➥**Powerd by Noinoi Music** \n\n📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n**[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})**",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     else:
@@ -189,7 +189,7 @@ async def play(_, message: Message):
         )
         return await message.reply_photo(
             photo=thumb,
-            caption=f"📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n__[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})__",
+            caption=f"➥**Powerd by Noinoi Music** \n\n📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n**[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})**",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
 
@@ -228,11 +228,11 @@ async def Music_Stream(_, CallbackQuery):
     title, duration_min, duration_sec, thumbnail = get_yt_info_id(videoid)
     if duration_sec > DURATION_LIMIT:
         return await CallbackQuery.message.reply_text(
-            f"**Duration Limit Exceeded**\n\n**Allowed Duration: **{DURATION_LIMIT_MIN} minute(s)\n**Received Duration:** {duration_min} minute(s)"
+            f"➥**Powerd by Noinoi Music** \n\n**Duration Limit Exceeded**\n\n**Allowed Duration: **{DURATION_LIMIT_MIN} minute(s)\n**Received Duration:** {duration_min} minute(s)"
         )
     await CallbackQuery.answer(f"Processing:- {title[:20]}", show_alert=True)
     mystic = await CallbackQuery.message.reply_text(
-        f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
+        f"➥**Powerd by Noinoi Music** \n\n**Title:** {title[:20]}"
     )
     downloaded_file = await loop.run_in_executor(
         None, download, videoid, mystic, title
