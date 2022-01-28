@@ -18,24 +18,6 @@ from Yukki.Utilities.assistant import get_assistant_details
 
 loop = asyncio.get_event_loop()
 
-__MODULE__ = "Join/Leave"
-__HELP__ = """
-
-**Note:**
-Only for Sudo Users
-
-
-/joinassistant [Chat Username or Chat ID]
-- Join assistant to a group.
-
-
-/leaveassistant [Chat Username or Chat ID]
-- Assistant will leave the particular group.
-
-
-/leavebot [Chat Username or Chat ID]
-- Bot will leave the particular chat.
-"""
 
 @app.on_callback_query(filters.regex("gback_list_chose_stream"))
 async def gback_list_chose_stream(_, CallbackQuery):
@@ -206,11 +188,11 @@ async def activevi_(_, message: Message):
         )
 
 
-@app.on_message(filters.command("joinassistant") & filters.user(SUDOERS))
+@app.on_message(filters.command("join") & filters.user(SUDOERS))
 async def basffy(_, message):
     if len(message.command) != 2:
         await message.reply_text(
-            "**Usage:**\n/joinassistant [Chat Username or Chat ID]"
+            "**Usage:**\n/join [Chat Username or Chat ID]"
         )
         return
     chat = message.text.split(None, 2)[1]
