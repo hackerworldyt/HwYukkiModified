@@ -32,36 +32,6 @@ from Yukki.Utilities.youtube import get_m3u8, get_yt_info_id
 loop = asyncio.get_event_loop()
 
 
-__MODULE__ = "Voice Chat"
-__HELP__ = """
-
-
-/pause
-- Pause the playing music on voice chat.
-
-/resume
-- Resume the paused music on voice chat.
-
-/skip
-- Skip the current playing music on voice chat
-
-/end or /stop
-- Stop the playout.
-
-/queue
-- Check queue list.
-
-
-**Note:**
-Only for Sudo Users
-
-/activevc
-- Check active voice chats on bot.
-
-/activevideo
-- Check active video calls on bot.
-"""
-
 
 @app.on_message(
     filters.command(["pause", "skip", "resume", "stop", "end"])
@@ -162,7 +132,7 @@ async def admins(_, message: Message):
                 final_output = await message.reply_photo(
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
-                    caption=f"<b>__Skipped Voice Chat__</b>\n\n🎥<b>__Started Playing:__</b> {title} \n⏳<b>__Duration:__</b> {duration_min} \n👤<b>__Requested by:__ </b> {mention}",
+                    caption=f"<b>**Powerd by Noinoi Music** \n\n**Skipped Voice Chat**</b>\n\n🎥<b>**Started Playing:**</b> {title} \n⏳<b>**Duration:**</b> {duration_min} \n👤<b>**Requested by:** </b> {mention}",
                 )
                 await start_timer(
                     videoid,
@@ -196,7 +166,7 @@ async def admins(_, message: Message):
                         photo="Utils/Telegram.JPEG",
                         reply_markup=InlineKeyboardMarkup(buttons),
                         caption=(
-                            f"<b>__Skipped Video Chat__</b>\n\n👤**__Requested by:__** {mention}"
+                            f"<b>**Powerd by Noinoi Music** \n\n**Skipped Video Chat**</b>\n\n👤**Requested by:** {mention}"
                         ),
                     )
                     await mystic.delete()
@@ -236,7 +206,7 @@ async def admins(_, message: Message):
                         photo=thumb,
                         reply_markup=InlineKeyboardMarkup(buttons),
                         caption=(
-                            f"<b>__Skipped Video Chat__</b>\n\n🎥<b>__Started Video Playing:__ </b> [{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n👤**__Requested by:__** {mention}"
+                            f"<b>**Powerd by Noinoi Music** \n\n**Skipped Video Chat**</b>\n\n🎥<b>**Started Video Playing:** </b> [{title[:20]}](https://www.youtube.com/watch?v={videoid}) \n👤**Requested by:** {mention}"
                         ),
                     )
                     await mystic.delete()
@@ -261,7 +231,7 @@ async def admins(_, message: Message):
                     thumbnail,
                 ) = get_yt_info_id(videoid)
                 await mystic.edit(
-                    f"**{MUSIC_BOT_NAME} Downloader**\n\n**Title:** {title[:50]}\n\n0% ▓▓▓▓▓▓▓▓▓▓▓▓ 100%"
+                    f"**𝐏𝐨𝐰𝐞𝐫𝐝 𝐛𝐲 𝐍𝐨𝐢𝐧𝐨𝐢**\n\n➥ {title[:20]}\"
                 )
                 downloaded_file = await loop.run_in_executor(
                     None, download, videoid, mystic, title
@@ -282,7 +252,7 @@ async def admins(_, message: Message):
                     photo=thumb,
                     reply_markup=InlineKeyboardMarkup(buttons),
                     caption=(
-                        f"<b>__Skipped Voice Chat__</b>\n\n🎥<b>__Started Playing:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n⏳<b>__Duration:__</b> {duration_min} Mins\n👤**__Requested by:__** {mention}"
+                        f"<b>**Powerd by Noinoi Music** \n\n**Skipped Voice Chat**</b>\n\n🎥<b>**Started Playing:** </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n⏳<b>**Duration:**</b> {duration_min} Mins\n👤**Requested by:** {mention}"
                     ),
                 )
                 os.remove(thumb)
