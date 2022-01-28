@@ -231,7 +231,7 @@ async def admins(_, message: Message):
                     thumbnail,
                 ) = get_yt_info_id(videoid)
                 await mystic.edit(
-                    f"**𝐏𝐨𝐰𝐞𝐫𝐝 𝐛𝐲 𝐍𝐨𝐢𝐧𝐨𝐢**\n\n➥ {title[:20]}\"
+                    f"**𝐏𝐨𝐰𝐞𝐫𝐝 𝐛𝐲 𝐍𝐨𝐢𝐧𝐨𝐢**\n\n➥ {title[:20]}"
                 )
                 downloaded_file = await loop.run_in_executor(
                     None, download, videoid, mystic, title
