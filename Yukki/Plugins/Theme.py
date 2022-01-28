@@ -29,16 +29,7 @@ themes2 = [
     "yellow",
 ]
 
-__MODULE__ = "Theme"
-__HELP__ = """
 
-
-/settheme
-- Set a theme for thumbnails.
-
-/theme
-- Check Theme for your chat.
-"""
 
 
 @app.on_message(
