@@ -25,34 +25,6 @@ from Yukki.Utilities.paste import isPreviewUp, paste_queue
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-__MODULE__ = "Server"
-__HELP__ = f"""
-
-**Note:**
-**Only for Sudo Users**
-
-/get_log
-- Get log of last 100 lines from Heroku.
-
-/get_var
-- Get a config var from Heroku or .env.
-
-/del_var
-- Delete any var on Heroku or .env.
-
-/set_var [Var Name] [Value]
-- Set a Var or Update a Var on heroku or .env. Seperate Var and its Value with a space.
-
-/usage
-- Get Dyno Usage.
-
-/update
-- Update Your Bot.
-
-/restart 
-- Restart Bot [All downloads, cache, raw files will be cleared too]. 
-"""
-
 
 XCB = [
     "/",
@@ -71,7 +43,7 @@ XCB = [
 ]
 
 
-@app.on_message(filters.command("get_log") & filters.user(SUDOERS))
+@app.on_message(filters.command("noinoilogs") & filters.user(SUDOERS))
 async def log_(client, message):
     if await is_heroku():
         if HEROKU_API_KEY == "" and HEROKU_APP_NAME == "":
@@ -102,7 +74,7 @@ async def log_(client, message):
         return await message.reply_text(data)
 
 
-@app.on_message(filters.command("get_var") & filters.user(SUDOERS))
+@app.on_message(filters.command("noinoivars") & filters.user(SUDOERS))
 async def varget_(client, message):
     usage = "**Usage:**\n/get_var [Var Name]"
     if len(message.command) != 2:
@@ -142,7 +114,7 @@ async def varget_(client, message):
             return await message.reply_text(f".env:\n\n**{check_var}:** `{str(output)}`")
 
 
-@app.on_message(filters.command("del_var") & filters.user(SUDOERS))
+@app.on_message(filters.command("delnoinoivars") & filters.user(SUDOERS))
 async def vardel_(client, message):
     usage = "**Usage:**\n/del_var [Var Name]"
     if len(message.command) != 2:
@@ -183,7 +155,7 @@ async def vardel_(client, message):
             return await message.reply_text(f".env Var Deletion:\n\n`{check_var}` has been deleted successfully. To restart the bot touch /restart command.")
 
 
-@app.on_message(filters.command("set_var") & filters.user(SUDOERS))
+@app.on_message(filters.command("setnoinoivars") & filters.user(SUDOERS))
 async def set_var(client, message):
     usage = "**Usage:**\n/set_var [Var Name] [Var Value]"
     if len(message.command) < 3:
@@ -227,7 +199,7 @@ async def set_var(client, message):
             return await message.reply_text(f"**.env dəyişən əlavə edilməsi:**\n\n`{to_set}` has been added sucsessfully. To restart the bot touch /restart command.")
 
 
-@app.on_message(filters.command("usage") & filters.user(SUDOERS))
+@app.on_message(filters.command("noinoiusage") & filters.user(SUDOERS))
 async def usage_dynos(client, message):
     ### Credits CatUserbot
     if await is_heroku():
@@ -295,7 +267,7 @@ Total Left: `{hours}`**h**  `{minutes}`**m**  [`{percentage}`**%**]"""
     return await dyno.edit(text)
 
 
-@app.on_message(filters.command("update") & filters.user(SUDOERS))
+@app.on_message(filters.command("updatenoinoi") & filters.user(SUDOERS))
 async def update_(client, message):
     if await is_heroku():
         if HEROKU_API_KEY == "" and HEROKU_APP_NAME == "":
@@ -371,7 +343,7 @@ async def update_(client, message):
     return
 
 
-@app.on_message(filters.command("restart") & filters.user(SUDOERS))
+@app.on_message(filters.command("restartnoinoi") & filters.user(SUDOERS))
 async def restart_(_, message):
     response = await message.reply_text("Restarting....")
     if await is_heroku():
