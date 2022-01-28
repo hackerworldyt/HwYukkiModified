@@ -22,17 +22,3 @@ RAM: {mem}%
 Disk: {disk}%"""
     return stats
 
-
-@app.on_message(filters.command(["ping", f"ping@{BOT_USERNAME}"]))
-async def ping(_, message):
-    start = datetime.now()
-    response = await message.reply.photo(
-        photo = "https://telegra.ph/file/f6e5a34f3268114f07920.jpg"
-        caption=">> Pong!",
-    )
-    uptime = await bot_sys_stats()
-    end = datetime.now()
-    resp = (end - start).microseconds / 1000
-    await response.edit_text(
-        f"**Pong!**\n`⚡{resp} ms`"
-    )
