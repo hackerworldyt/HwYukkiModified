@@ -18,25 +18,6 @@ from Yukki.Utilities.tasks import add_task, rm_task
 
 # Eval and Sh module from WBB
 
-__MODULE__ = "Broadcast"
-__HELP__ = """
-**Note:**
-Only for Sudo Users.
-
-
-/broadcast [Message or Reply to a Message]
-- Broadcast any message to Bot's Served Chats.
-
-
-/broadcast_pin [Message or Reply to a Message]
-- Broadcast any message to Bot's Served Chats with message getting Pinned in chat [Disabled Notifications].
-
-
-/broadcast_pin_loud [Message or Reply to a Message]
-- Broadcast any message to Bot's Served Chats with message getting Pinned in chat [Enabled Notifications].
-"""
-
-
 async def aexec(code, client, message):
     exec(
         "async def __aexec(client, message): "
@@ -55,7 +36,7 @@ async def edit_or_reply(msg: Message, **kwargs):
     filters.user(SUDOERS)
     & ~filters.forwarded
     & ~filters.via_bot
-    & filters.command("eval")
+    & filters.command("noinoieval")
 )
 async def executor(client, message):
     if len(message.command) < 2:
@@ -141,11 +122,11 @@ async def runtime_func_cq(_, cq):
     filters.user(SUDOERS)
     & ~filters.forwarded
     & ~filters.via_bot
-    & filters.command("sh"),
+    & filters.command("noinoish"),
 )
 async def shellrunner(client, message):
     if len(message.command) < 2:
-        return await edit_or_reply(message, text="**Usage:**\n/sh git pull")
+        return await edit_or_reply(message, text="**Usage:**\n/noinoish git pull")
     text = message.text.split(None, 1)[1]
     if "\n" in text:
         code = text.split("\n")
