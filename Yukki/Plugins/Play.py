@@ -144,7 +144,7 @@ async def play(_, message: Message):
     elif url:
         mystic = await message.reply_text("🔄 Processing...")
         if not message.reply_to_message:
-            query = message.text.split(None, 1)[1]
+            query = message.text.split(None, 5)[5]
         else:
             query = message.reply_to_message.text
         (
@@ -155,19 +155,30 @@ async def play(_, message: Message):
             videoid,
         ) = get_yt_info_query(query)
         await mystic.delete()
-        buttons = url_markup2(videoid, duration_min, message.from_user.id)
-        return await message.reply_photo(
-            photo=thumb,
-            caption=f"➥**Powerd by Noinoi Music** \n\n📎Title: **{title}\n\n⏳Duration:** {duration_min} Mins\n\n**[Get Additional Information About Video](https://t.me/{BOT_USERNAME}?start=info_{videoid})**",
-            reply_markup=InlineKeyboardMarkup(buttons),
-        )
+        buttons = search_markup(
+        results[0]["id"],
+        results[1]["id"],
+        results[2]["id"],
+        results[3]["id"],
+        results[4]["id"],
+        results[0]["duration"],
+        results[1]["duration"],
+        results[2]["duration"],
+        results[3]["duration"],
+        results[4]["duration"],
+        user_id,
+        query,
+    )
+        return await CallbackQuery.edit_message_media(
+        media=med, reply_markup=InlineKeyboardMarkup(buttons)
+    )
     else:
         if len(message.command) < 2:
             buttons = playlist_markup(
                 message.from_user.first_name, message.from_user.id, "abcd"
             )
             await message.reply_photo(
-                photo="Utils/Playlist.jpg",
+                photo="https://telegra.ph/file/f6e5a34f3268114f07920.jpg",
                 caption=(
                     "**Usage:** /play [Music Name or Youtube Link or Reply to Audio]\n\nIf you want to play Playlists! Select the one from Below."
                 ),
