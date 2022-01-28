@@ -30,22 +30,6 @@ from Yukki.Utilities.youtube import (get_m3u8, get_yt_info_id,
                                      get_yt_info_query,
                                      get_yt_info_query_slider)
 
-loop = asyncio.get_event_loop()
-
-__MODULE__ = "VideoCalls"
-__HELP__ = f"""
-
-/play [Reply to any Video] or [YT Link] or [Music Name]
-- Stream Video on Voice Chat
-
-**For Sudo User:-**
-
-/set_video_limit [Number of Chats]
-- Set a maximum Number of Chats allowed for Video Calls at a time.
-
-
-"""
-
 
 @app.on_callback_query(filters.regex(pattern=r"Yukki"))
 async def choose_playmode(_, CallbackQuery):
