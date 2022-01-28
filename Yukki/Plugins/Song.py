@@ -15,20 +15,9 @@ from Yukki.Utilities.youtube import get_yt_info_query, get_yt_info_query_slider
 
 loop = asyncio.get_event_loop()
 
-__MODULE__ = "Song"
-__HELP__ = """
-
-
-/song [Youtube URL or Search Query] 
-- Download the particular query in audio or video format.
-
-
-
-"""
-
 
 @app.on_message(
-    filters.command(["song", f"song@{BOT_USERNAME}"])
+    filters.command(["noinoisong", f"noinoisong@{BOT_USERNAME}"])
 )
 @PermissionCheck
 async def play(_, message: Message):
@@ -45,7 +34,7 @@ async def play(_, message: Message):
         pass
     url = get_url(message)
     if url:
-        mystic = await message.reply_text("🔄 Processing URL... Please Wait!")
+        mystic = await message.reply_text("🔄 Processing. . .")
         query = message.text.split(None, 1)[1]
         (
             title,
@@ -66,10 +55,10 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             await message.reply_text(
-                "**Usage:**\n\n/song [Youtube Url or Music Name]\n\nDownloads the Particular Query."
+                "**Usage:**\n\n/noinoisong [Youtube Url or Music Name]\n\nDownloads the Particular Query."
             )
             return
-        mystic = await message.reply_text("🔍 Searching Your Query...")
+        mystic = await message.reply_text("🔍 Searching...")
         query = message.text.split(None, 1)[1]
         (
             title,
