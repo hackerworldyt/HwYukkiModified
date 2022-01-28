@@ -4,33 +4,12 @@ from pyrogram.types import Message
 from Yukki import SUDOERS, app
 from Yukki.Database import blacklist_chat, blacklisted_chats, whitelist_chat
 
-__MODULE__ = "Blacklist"
-__HELP__ = """
 
-
-/blacklistedchat 
-- Check Blacklisted Chats of Bot.
-
-
-**Note:**
-Only for Sudo Users.
-
-
-/blacklistchat [CHAT_ID] 
-- Blacklist any chat from using Music Bot
-
-
-/whitelistchat [CHAT_ID] 
-- Whitelist any blacklisted chat from using Music Bot
-
-"""
-
-
-@app.on_message(filters.command("blacklistchat") & filters.user(SUDOERS))
+@app.on_message(filters.command("chatbl") & filters.user(SUDOERS))
 async def blacklist_chat_func(_, message: Message):
     if len(message.command) != 2:
         return await message.reply_text(
-            "**Usage:**\n/blacklistchat [CHAT_ID]"
+            "**TYPE :**\n/chatbl [CHAT_ID]"
         )
     chat_id = int(message.text.strip().split()[1])
     if chat_id in await blacklisted_chats():
@@ -43,11 +22,11 @@ async def blacklist_chat_func(_, message: Message):
     await message.reply_text("Something wrong happened, check logs.")
 
 
-@app.on_message(filters.command("whitelistchat") & filters.user(SUDOERS))
+@app.on_message(filters.command("chatwl") & filters.user(SUDOERS))
 async def whitelist_chat_func(_, message: Message):
     if len(message.command) != 2:
         return await message.reply_text(
-            "**Usage:**\n/whitelistchat [CHAT_ID]"
+            "**TYPE :**\n/chatwl [CHAT_ID]"
         )
     chat_id = int(message.text.strip().split()[1])
     if chat_id not in await blacklisted_chats():
@@ -60,7 +39,7 @@ async def whitelist_chat_func(_, message: Message):
     await message.reply_text("Something wrong happened, check logs.")
 
 
-@app.on_message(filters.command("blacklistedchat"))
+@app.on_message(filters.command("blchats"))
 async def blacklisted_chats_func(_, message: Message):
     text = "**Blacklisted Chats:**\n\n"
     j = 0
