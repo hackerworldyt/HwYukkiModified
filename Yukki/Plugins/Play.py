@@ -189,7 +189,7 @@ async def play(_, message: Message):
         )
         return await message.reply_photo(
             photo="https://telegra.ph/file/f6e5a34f3268114f07920.jpg",
-            caption=f" 1️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Mins \n\n 2️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Mins \n\n 3️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Mins \n\n 4️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Mins",
+            caption=f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n\n 2️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Mins \n\n 3️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Mins \n\n 4️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Mins",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
 
