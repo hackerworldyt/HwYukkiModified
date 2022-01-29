@@ -158,7 +158,7 @@ async def play(_, message: Message):
         buttons = url_markup2(videoid, duration_min, message.from_user.id)
         return await message.reply_photo(
             photo="https://telegra.ph/file/f6e5a34f3268114f07920.jpg",
-            caption=f" 1️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Min \n\n 2️⃣ **{title[:22]}\n 💡 Duration:** {duration_min} Min\n\n 2️⃣ **{title[:25]}\n╠═Duration:** {duration_min} Min \n\n 2️⃣ **{title[:24]}\n 💡 Duration:** {duration_min} Min \n\n 3️⃣ **{title[:23]}\n 💡 Duration:** {duration_min} Min \n\n 4️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Min ",
+            caption=f"1️⃣ **{title[:22]}\n 💡 Duration:** {duration_min} Min \n\n 2️⃣ **{title[:20]}\n 💡 Duration:** {duration_min} Min\n\n 3️⃣ **{title[:20]}\n 💡 Duration:** {duration_min} Min \n\n 4️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Min",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
     else:
@@ -189,7 +189,7 @@ async def play(_, message: Message):
         )
         return await message.reply_photo(
             photo="https://telegra.ph/file/f6e5a34f3268114f07920.jpg",
-            caption=f"1 1️⃣ **{title[:22]}\n 💡 Duration:** {duration_min} Min \n\n 2️⃣ **{title[:20]}\n 💡 Duration:** {duration_min} Min\n\n 2️⃣ **{title[:25]}\n╠═Duration:** {duration_min} Min \n\n 2️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Min \n\n 3️⃣ **{title[:20]}\n 💡 Duration:** {duration_min} Min \n\n 4️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Min",
+            caption=f"1️⃣ **{title[:22]}\n 💡 Duration:** {duration_min} Min \n\n 2️⃣ **{title[:20]}\n 💡 Duration:** {duration_min} Min\n\n 3️⃣ **{title[:20]}\n 💡 Duration:** {duration_min} Min \n\n 4️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Min",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
 
