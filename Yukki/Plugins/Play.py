@@ -157,7 +157,7 @@ async def play(_, message: Message):
         await mystic.delete()
         buttons = url_markup2(videoid, duration_min, message.from_user.id)
         return await message.reply_photo(
-            photo=thumb,
+            photo="https://telegra.ph/file/f6e5a34f3268114f07920.jpg",
             caption=f" 1️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Min \n\n 2️⃣ **{title[:20]}\n 💡 Duration:** {duration_min} Min\n\n 2️⃣ **{title[:20]}\n╠═Duration:** {duration_min} Min \n\n 2️⃣ **{title[:20]}\n 💡 Duration:** {duration_min} Min \n\n 3️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Min \n\n 4️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Min ",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -188,7 +188,7 @@ async def play(_, message: Message):
             videoid, duration_min, message.from_user.id, query, 0
         )
         return await message.reply_photo(
-            photo=thumb,
+            photo="https://telegra.ph/file/f6e5a34f3268114f07920.jpg",
             caption=f" 1️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Mins \n\n 2️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Mins \n\n 3️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Mins \n\n 4️⃣ **{title[:27]}\n 💡 Duration:** {duration_min} Mins",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
