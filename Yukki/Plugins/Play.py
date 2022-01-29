@@ -142,20 +142,24 @@ async def play(_, message: Message):
             mystic,
         )
     elif url:
-        mystic = await message.reply_text("🔄 Processing URL... Please Wait!")
-        if not message.reply_to_message:
-            query = message.text.split(None, 1)[1]
-        else:
-            query = message.reply_to_message.text
-        (
-            title,
-            duration_min,
-            duration_sec,
-            thumb,
-            videoid,
-        ) = get_yt_info_query(query)
-        await mystic.delete()
-        buttons = search_markup(
+    async def search_query_more(_, CallbackQuery):
+    callback_data = CallbackQuery.data.strip()
+    callback_request = callback_data.split(None, 1)[1]
+    query, user_id = callback_request.split("|")
+    if CallbackQuery.from_user.id != int(user_id):
+        return await CallbackQuery.answer(
+            "Search Your Own Music. You're not allowed to use this button.",
+            show_alert=True,
+        )
+    await CallbackQuery.answer("Searching More Results")
+    results = YoutubeSearch(query, max_results=5).to_dict()
+    med = InputMediaPhoto(
+        media="Utils/Result.JPEG",
+        caption=(
+            f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n\n2️⃣<b>{results[1]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u>\n\n3️⃣<b>{results[2]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u>\n\n4️⃣<b>{results[3]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u>\n\n5️⃣<b>{results[4]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>"
+        ),
+    )
+    buttons = search_markup(
         results[0]["id"],
         results[1]["id"],
         results[2]["id"],
@@ -168,15 +172,11 @@ async def play(_, message: Message):
         results[4]["duration"],
         user_id,
         query,
-    )        
-        return await message.reply_photo(
-            photo=thumb,
-            caption=(
-            f"1️⃣<b>{results[0]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[0]['id']})__</u>\n\n2️⃣<b>{results[1]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[1]['id']})__</u>\n\n3️⃣<b>{results[2]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[2]['id']})__</u>\n\n4️⃣<b>{results[3]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[3]['id']})__</u>\n\n5️⃣<b>{results[4]['title']}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{results[4]['id']})__</u>"
-        ),
     )
-      reply_markup=InlineKeyboardMarkup(buttons),
-        )
+    return await CallbackQuery.edit_message_media(
+        media=med, reply_markup=InlineKeyboardMarkup(buttons)
+    )
+
     else:
         if len(message.command) < 2:
             buttons = playlist_markup(
