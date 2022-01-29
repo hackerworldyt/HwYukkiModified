@@ -8,22 +8,22 @@ def url_markup(videoid, duration, user_id, query, query_type):
     buttons = [
         [
             InlineKeyboardButton(
-                text="Back",
-                callback_data=f"slider B|{query_type}|{query}|{user_id}",
-            ),
-            InlineKeyboardButton(
-                text="Play",
+                text="1",
                 callback_data=f"MusicStream {videoid}|{duration}|{user_id}",
             ),
-            InlineKeyboardButton(
-                text="Next",
-                callback_data=f"slider F|{query_type}|{query}|{user_id}",
+          InlineKeyboardButton(
+                text="2",
+                callback_data=f"MusicStream {videoid}|{duration}|{user_id}",
+            ),
+          InlineKeyboardButton(
+                text="3",
+                callback_data=f"MusicStream {videoid}|{duration}|{user_id}",
             ),
         ],
-        [
+      [
             InlineKeyboardButton(
-                text="Exit ‼",
-                callback_data=f"forceclose {query}|{user_id}",
+                text="1",
+                callback_data=f"MusicStream {videoid}|{duration}|{user_id}",
             ),
         ],
     ]
@@ -34,15 +34,23 @@ def url_markup2(videoid, duration, user_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="Play",
+                text="1",
+                callback_data=f"MusicStream {videoid}|{duration}|{user_id}",
+            ),
+          InlineKeyboardButton(
+                text="2",
+                callback_data=f"MusicStream {videoid}|{duration}|{user_id}",
+            ),
+          InlineKeyboardButton(
+                text="3",
                 callback_data=f"MusicStream {videoid}|{duration}|{user_id}",
             ),
         ],
         [
             InlineKeyboardButton(
-                text="🗑 Close Search",
-                callback_data=f"forceclose {videoid}|{user_id}",
-            )
+                text="4",
+                callback_data=f"MusicStream {videoid}|{duration}|{user_id}",
+            ),
         ],
     ]
     return buttons
