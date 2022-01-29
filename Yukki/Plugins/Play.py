@@ -168,7 +168,8 @@ async def play(_, message: Message):
         results[4]["duration"],
         user_id,
         query,
-    )        return await message.reply_photo(
+    )        
+        return await message.reply_photo(
             photo=thumb,
             caption=(
             f"1️⃣<b>{results[0]['title']}</b>\n2️⃣<b>{results[1]['title']}</b>\n3️⃣<b>{results[2]['title']}</b>\n4️⃣<b>{results[3]['title']}</b>\n5️⃣<b>{results[4]['title']}</b>"
