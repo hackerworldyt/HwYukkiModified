@@ -22,7 +22,11 @@ def url_markup(videoid, duration, user_id, query, query_type):
         ],
       [
             InlineKeyboardButton(
-                text="1",
+                text="4",
+                callback_data=f"MusicStream {videoid}|{duration}|{user_id}",
+            ),
+        InlineKeyboardButton(
+                text="5",
                 callback_data=f"MusicStream {videoid}|{duration}|{user_id}",
             ),
         ],
@@ -49,6 +53,10 @@ def url_markup2(videoid, duration, user_id):
         [
             InlineKeyboardButton(
                 text="4",
+                callback_data=f"MusicStream {videoid}|{duration}|{user_id}",
+            ),
+          InlineKeyboardButton(
+                text="5",
                 callback_data=f"MusicStream {videoid}|{duration}|{user_id}",
             ),
         ],
