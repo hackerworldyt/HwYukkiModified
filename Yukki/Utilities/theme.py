@@ -11,6 +11,8 @@ themes = [
     "orange",
     "pink",
     "yellow",
+    "Hw",
+    "Hw1",
 ]
 
 
