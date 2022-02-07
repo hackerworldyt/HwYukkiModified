@@ -173,6 +173,9 @@ def secondary_markup(videoid, user_id):
             InlineKeyboardButton(
                 text="✨ Updates", url="https://t.me/HwMusicUpdates"
             ),
+            InlineKeyboardButton(
+                text="✨ Owner", url="https://t.me/iamhackerworld"
+            ),
             InlineKeyboardButton(text="📣 Support", url="https://t.me/CFC_BOT_SUPPORT"),
         ],
     ]
@@ -184,6 +187,9 @@ def secondary_markup2(videoid, user_id):
         [
             InlineKeyboardButton(
                 text="✨ Updates", url="https://t.me/HwMusicUpdates"
+            ),
+            InlineKeyboardButton(
+                text="✨ Owner", url="https://t.me/iamhackerworld"
             ),
             InlineKeyboardButton(text="📣 Support", url="https://t.me/CFC_BOT_SUPPORT"),
         ],
@@ -200,6 +206,9 @@ def primary_markup(videoid, user_id, current_time, total_time):
             InlineKeyboardButton(
                 text="✨ Updates", url="https://t.me/HwMusicUpdates"
             ),
+            InlineKeyboardButton(
+                text="✨ Owner", url="https://t.me/iamhackerworld"
+            ),
             InlineKeyboardButton(text="📣 Support", url="https://t.me/CFC_BOT_SUPPORT"),
         ],
     ]
@@ -211,6 +220,9 @@ def timer_markup(videoid, user_id, current_time, total_time):
         [
             InlineKeyboardButton(
                 text="✨ Updates", url="https://t.me/HwMusicUpdates"
+            ),
+            InlineKeyboardButton(
+                text="✨ Owner", url="https://t.me/iamhackerworld"
             ),
             InlineKeyboardButton(text="📣 Support", url="https://t.me/CFC_BOT_SUPPORT"),
         ],
@@ -227,6 +239,9 @@ def audio_markup(videoid, user_id, current_time, total_time):
             InlineKeyboardButton(
                 text="✨ Updates", url="https://t.me/HwMusicUpdates"
             ),
+            InlineKeyboardButton(
+                text="✨ Owner", url="https://t.me/iamhackerworld"
+            ),
             InlineKeyboardButton(text="📣 Support", url="https://t.me/CFC_BOT_SUPPORT"),
         ],
     ]
@@ -238,6 +253,9 @@ def audio_timer_markup_start(videoid, user_id, current_time, total_time):
         [
             InlineKeyboardButton(
                 text="✨ Updates", url="https://t.me/HwMusicUpdates"
+            ),
+            InlineKeyboardButton(
+                text="✨ Owner", url="https://t.me/iamhackerworld"
             ),
             InlineKeyboardButton(text="📣 Support", url="https://t.me/CFC_BOT_SUPPORT"),
         ],
