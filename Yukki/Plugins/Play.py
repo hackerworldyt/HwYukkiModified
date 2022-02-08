@@ -157,7 +157,7 @@ async def play(_, message: Message):
         await mystic.delete()
         buttons = url_markup2(videoid, duration_min, message.from_user.id)
         return await message.reply_photo(
-            photo="https://telegra.ph/file/f6e5a34f3268114f07920.jpg",
+            photo="https://telegra.ph/file/21d0412ed17209f9f4fc0.jpg",
             caption=f"1️⃣ **{title[:22]}\n ├ Duration:** {duration_min} Min \n\n 2️⃣ **{title[:20]}\n ├ Duration:** {duration_min} Min\n\n 3️⃣ **{title[:20]}\n ├ Duration:** {duration_min} Min \n\n 4️⃣ **{title[:27]}\n ├ Duration:** {duration_min} Min \n\n 5️⃣ **{title[:22]}\n ├ Duration:** {duration_min} Min",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -188,7 +188,7 @@ async def play(_, message: Message):
             videoid, duration_min, message.from_user.id, query, 0
         )
         return await message.reply_photo(
-            photo="https://telegra.ph/file/f6e5a34f3268114f07920.jpg",
+            photo="https://telegra.ph/file/21d0412ed17209f9f4fc0.jpg",
             caption=f"1️⃣ **{title[:22]}\n ├ Duration:** {duration_min} Min \n\n 2️⃣ **{title[:20]}\n ├ Duration:** {duration_min} Min\n\n 3️⃣ **{title[:20]}\n ├ Duration:** {duration_min} Min \n\n 4️⃣ **{title[:27]}\n ├ Duration:** {duration_min} Min \n\n 5️⃣ **{title[:22]}\n ├ Duration:** {duration_min} Min",
             reply_markup=InlineKeyboardMarkup(buttons),
         )
@@ -232,7 +232,7 @@ async def Music_Stream(_, CallbackQuery):
         )
     await CallbackQuery.answer(f"Processing:- {title[:20]}", show_alert=True)
     mystic = await CallbackQuery.message.reply_text(
-        f"➥ **Powerd by noinoi music**\n\n{title[:20]}"
+        f"➥ **Powered By Hw Music**\n\n{title[:20]}"
     )
     downloaded_file = await loop.run_in_executor(
         None, download, videoid, mystic, title
