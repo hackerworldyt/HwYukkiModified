@@ -41,7 +41,7 @@ async def lyricssex(_, CallbackQuery):
     userid = CallbackQuery.from_user.id
     usr = f"[{CallbackQuery.from_user.first_name}](tg://user?id={userid})"
     xxx = f"""
-**➥ 𝐏𝐨𝐰𝐞𝐝 𝐛𝐲 𝐍𝐨𝐢𝐧𝐨𝐢 𝐌𝐮𝐬𝐢𝐜 **
+**➥ Powered By Hw Music **
 
 **Searched By:-** {usr}
 **Searched Song:-** __{title}__
@@ -79,7 +79,7 @@ async def lrsearch(_, message: Message):
     if S is None:
         return await m.edit("Lyrics not found :p")
     xxx = f"""
-**➥ 𝐏𝐨𝐰𝐞𝐝 𝐛𝐲 𝐍𝐨𝐢𝐧𝐨𝐢 𝐌𝐮𝐬𝐢𝐜**
+**➥ Powered By Hw Music **
 
 **Searched Song:-** __{query}__
 **Found Lyrics For:-** __{S.title}__
