@@ -58,7 +58,7 @@ async def assis_change(_, message: Message):
     _assistant = await get_assistant(message.chat.id, "assistant")
     if not _assistant:
         await message.reply_text(
-            f"**Noinoi Music Bot Assistant Alloted**\n\nAssistant No. **{ran_ass}**"
+            f"**Hw Music Bot Assistant Alloted**\n\nAssistant No. **{ran_ass}**"
         )
         assis = {
             "saveassistant": ran_ass,
@@ -67,7 +67,7 @@ async def assis_change(_, message: Message):
     else:
         ass = _assistant["saveassistant"]
         return await message.reply_text(
-            f"Old Noinoi Assistant Number {ass} Found.\n\nYou can change Assistant Via /changeassistant"
+            f"Old Hw Assistant Number {ass} Found.\n\nYou can change Assistant Via /changeassistant"
         )
 
 
@@ -76,10 +76,10 @@ async def check_ass(_, message: Message):
     _assistant = await get_assistant(message.chat.id, "assistant")
     if not _assistant:
         return await message.reply_text(
-            "No old noinoi Assistant Found.\n\nYou can set Assistant Via /play"
+            "No old Hw Assistant Found.\n\nYou can set Assistant Via /play"
         )
     else:
         ass = _assistant["saveassistant"]
         return await message.reply_text(
-            f"Old noinoi Assistant Found\n\nAssistanty Number {ass} "
+            f"Old Hw Assistant Found\n\nAssistanty Number {ass} "
         )
