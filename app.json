@@ -50,12 +50,12 @@
     },
     "SUPPORT_CHANNEL": {
       "description": "Support Channel Link if you have any, Leave blank if no support. Your link must start with https://t.me/",
-      "value": "",
+      "value": "https://t.me/HwMusicUpdates",
       "required": false
     },
     "SUPPORT_GROUP": {
       "description": "Support Group Link if you have any, Leave blank if no support. Your link must start with https://t.me/",
-      "value": "",
+      "value": "https://t.me/CFC_BOT,_SUPPORT",
       "required": false
     },
     "OWNER_ID": {
@@ -115,7 +115,7 @@
     },
     "UPSTREAM_REPO": {
       "description": "If you dont know this, Leave as it is",
-      "value": "https://github.com/hackerworldyt/NoinoiMultiAssistant/",
+      "value": "https://github.com/hackerworldyt/HwYukkiModified",
       "required": true
     },
     "UPSTREAM_BRANCH": {
