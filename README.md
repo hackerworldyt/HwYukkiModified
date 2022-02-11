@@ -4,7 +4,7 @@
 
 Can be found on telegram as [HW_BOT](https://t.me/HwMusicBot).
 
-The Support group can be reached out to at [Noinoin Support](https://t.me/CFC_BOT_SUPPORT), where you can ask for help , discover new features, report bugs, and stay in the loop whenever a new update is available. 
+The Support group can be reached out to at [Bot Support](https://t.me/CFC_BOT_SUPPORT), where you can ask for help , discover new features, report bugs, and stay in the loop whenever a new update is available. 
 
 
 News channel as at [Hw Updates](https://t.me/HwMusicUpdates)
