@@ -8,9 +8,6 @@ def check_markup(user_name, user_id, videoid):
             InlineKeyboardButton(
                 text="✨ Updates", url="https://t.me/HwMusicUpdates"
             ),
-            InlineKeyboardButton(
-                text="✨ Owner", url="https://t.me/iamhackerworld"
-            ),
             InlineKeyboardButton(text="📣 Support", url="https://t.me/CFC_BOT_SUPPORT"),
         ],
     ]
@@ -22,9 +19,6 @@ def playlist_markup(user_name, user_id, videoid):
         [
             InlineKeyboardButton(
                 text="✨ Updates", url="https://t.me/HwMusicUpdates"
-            ),
-            InlineKeyboardButton(
-                text="✨ Owner", url="https://t.me/iamhackerworld"
             ),
             InlineKeyboardButton(text="📣 Support", url="https://t.me/CFC_BOT_SUPPORT"),
         ],
