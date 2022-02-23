@@ -114,7 +114,7 @@
       "required": true
     },
     "UPSTREAM_REPO": {
-      "description": "If you dont know this, Leave as it is",
+      "description": "Don't Edit",
       "value": "https://github.com/hackerworldyt/HwYukkiModified",
       "required": true
     },
