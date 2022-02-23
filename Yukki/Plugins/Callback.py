@@ -272,7 +272,7 @@ async def admin_risghts(_, CallbackQuery):
                     thumbnail,
                 ) = get_yt_info_id(videoid)
                 await mystic.edit(
-                    f"**➥ 𝐏𝐨𝐰𝐞𝐝 𝐛𝐲 𝐍𝐨𝐢𝐧𝐨𝐢 𝐌𝐮𝐬𝐢𝐜**\n\n{title[:20]}"
+                    f"**➥ Powered By Hw Music**\n\n{title[:20]}"
                 )
                 downloaded_file = await loop.run_in_executor(
                     None, download, videoid, mystic, title
