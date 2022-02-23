@@ -17,7 +17,7 @@ loop = asyncio.get_event_loop()
 
 
 @app.on_message(
-    filters.command(["noinoisong", f"noinoisong@{BOT_USERNAME}"])
+    filters.command(["hwsong", f"hwsong@{BOT_USERNAME}"])
 )
 @PermissionCheck
 async def play(_, message: Message):
