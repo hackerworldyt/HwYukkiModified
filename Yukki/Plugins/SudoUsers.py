@@ -245,7 +245,7 @@ async def ban_globally(_, message):
                 except Exception:
                     pass
             ban_text = f"""
-**𝐍𝐨𝐢𝐧𝐨𝐢 𝐒𝐮𝐩𝐞𝐫 𝐆 𝐛𝐚𝐧** 🔥
+**HW SUPER GBAN** 🔥
 
 **Origin:** {message.chat.title} [`{message.chat.id}`]
 **Sudo User:** {from_user.mention}
@@ -296,7 +296,7 @@ async def ban_globally(_, message):
                 except Exception:
                     pass
             ban_text = f"""
-**𝐍𝐨𝐢𝐧𝐨𝐢 𝐒𝐮𝐩𝐞𝐫 𝐆 𝐛𝐚𝐧** 🔥
+**HW SUPER GBAN** 🔥
 
 **Origin:** {message.chat.title} [`{message.chat.id}`]
 **Sudo User:** {from_user_mention}
