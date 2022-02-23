@@ -55,7 +55,7 @@ def start_pannel():
             ],
             [
                 InlineKeyboardButton(
-                    text="📨Support Group", url=f"{SUPPORT_GROUP}"
+                    text="📨Support Group", url=f"https://t.me/HwBotSupport"
                 ),
             ],
         ]
@@ -96,7 +96,7 @@ def start_pannel():
                     text="📨Official Channel", url=f"{SUPPORT_CHANNEL}"
                 ),
                 InlineKeyboardButton(
-                    text="📨Support Group", url=f"{SUPPORT_GROUP}"
+                    text="📨Support Group", url=f"https://t.me/HwBotSupport"
                 ),
             ],
         ]
@@ -134,7 +134,7 @@ def private_panel():
             ],
             [
                 InlineKeyboardButton(
-                    text="📨Support Group", url=f"{SUPPORT_GROUP}"
+                    text="📨Support Group", url=f"https://t.me/HwBotSupport"
                 ),
             ],
         ]
@@ -177,7 +177,7 @@ def private_panel():
                     text="📨Official Channel", url=f"{SUPPORT_CHANNEL}"
                 ),
                 InlineKeyboardButton(
-                    text="📨Support Group", url=f"{SUPPORT_GROUP}"
+                    text="📨Support Group", url=f"https://t.me/HwBotSupport"
                 ),
             ],
         ]
